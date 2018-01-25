@@ -1,8 +1,12 @@
 class Conta {
+	//Variáveis do tipo numerico recebem valor default (numeros é 0, boolean é false)
+
 	int numero;
 	String dono;
+	String cpf = "123.456.789-10";
 	double saldo;
 	double limite;
+
 
 	boolean saca(double quantidade) {
 		if(this.saldo < quantidade)
@@ -15,6 +19,14 @@ class Conta {
 	}
 	void deposita(double quantidade) {
 		this.saldo += quantidade;
+	}
+	boolean transferePara(Conta destino, double valor) {
+		if(!this.saca(valor))
+			return false;
+		else {
+			destino.deposita(valor);
+			return true;
+		}
 	}
 
 }
@@ -30,6 +42,14 @@ class ProgramaConta {
 		c2.deposita(200);
 		System.out.println(c1.saldo);
 		System.out.println(c2.saldo);
+
+		if(c1 == c2)
+			System.out.println("São as mesmas referencias!!");
+		
+		Conta conta1 = new Conta();
+		Conta conta2 = new Conta();
+
+		conta1.transferePara(conta2,50);
 
 	}
 }
