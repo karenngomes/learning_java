@@ -1,12 +1,11 @@
+//"uma variável nunca carrega um objeto, e sim uma referência para ele"
 class Conta {
 	//Variáveis do tipo numerico recebem valor default (numeros é 0, boolean é false)
 
 	int numero;
-	String dono;
-	String cpf = "123.456.789-10";
 	double saldo;
 	double limite;
-
+	Cliente titular = new Cliente();//Quando chamarem new Conta, haverá um new Cliente para ele
 
 	boolean saca(double quantidade) {
 		if(this.saldo < quantidade)
@@ -31,25 +30,21 @@ class Conta {
 
 }
 
+class Cliente {
+	String nome;
+	String sobrenome;
+	String cpf;
+}
+
 class ProgramaConta {
 	public static void main(String[] args) {
 		
-		Conta c1 = new Conta();
-		Conta c2 = new Conta();
-		//Nem c1 nem c2 são objetos. Eles se referem a um objeto
-		c1.deposita(100);
-		c2 = c1; //c2 passa a fazer referência para o mesmo objeto que c1 referencia nesse instante.
-		c2.deposita(200);
-		System.out.println(c1.saldo);
-		System.out.println(c2.saldo);
-
-		if(c1 == c2)
-			System.out.println("São as mesmas referencias!!");
-		
-		Conta conta1 = new Conta();
-		Conta conta2 = new Conta();
-
-		conta1.transferePara(conta2,50);
+		Conta minhaConta = new Conta();
+		//Cliente c = new Cliente();
+		//minhaConta.titular = c;
+		//como, ao criar o objeto Conta já foi instaciado o obj Cliente, esse modo não dará NullPointerExpection
+		minhaConta.titular.nome = "Manoel";
+		System.out.println(minhaConta.titular.nome);
 
 	}
 }
