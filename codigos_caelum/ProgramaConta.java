@@ -3,8 +3,8 @@ class Conta {
 	//Variáveis do tipo numerico recebem valor default (numeros é 0, boolean é false)
 
 	int numero;
-	double saldo;
-	double limite;
+	private double saldo;
+	private double limite;
 	Cliente titular = new Cliente();//Quando chamarem new Conta, haverá um new Cliente para ele
 
 	boolean saca(double quantidade) {
@@ -43,8 +43,9 @@ class ProgramaConta {
 		//Cliente c = new Cliente();
 		//minhaConta.titular = c;
 		//como, ao criar o objeto Conta já foi instaciado o obj Cliente, esse modo não dará NullPointerExpection
-		minhaConta.titular.nome = "Manoel";
-		System.out.println(minhaConta.titular.nome);
+		//minhaConta.titular.nome = "Manoel";
+		//System.out.println(minhaConta.titular.nome);
+		minhaConta.saldo = 1000;
 
 	}
 }

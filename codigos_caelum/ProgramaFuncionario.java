@@ -46,7 +46,7 @@ class Data {
 	}
 }
 
-class TesteFuncionario {
+class ProgramaFuncionario {
 	public static void main(String[] args) {
 		Funcionario f1 = new Funcionario(); 
 		Data data = new Data();
@@ -59,6 +59,5 @@ class TesteFuncionario {
 		System.out.println("Ganho anual: " + f1.calculaGanhoAnual());
 		//f1.demite();
 		f1.mostra();
-
 	}
 }
