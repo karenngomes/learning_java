@@ -1,12 +1,13 @@
 class Funcionario {
 	String nome;
 	String departamento;
-	double salario;
+	private double salario;
 	Data dataDeEntrada;
-	String rg;
+	private String rg;
 	boolean estaNaEmpresa;
+	private static int identificador;
 
-	void mostra(){
+	void mostraFuncionario(){
 		System.out.println("Nome: " + this.nome);
 		System.out.println("departamento: " + this.departamento);
 		System.out.println("salario: " + this.salario);
@@ -17,6 +18,40 @@ class Funcionario {
 		//System.out.println("Mês: " + this.dataDeEntrada.mes);
 		//System.out.println("Ano: " + this.dataDeEntrada.ano);
 	}
+
+	public Funcionario(){
+		Funcionario.identificador = Funcionario.identificador + 1;
+	}
+
+	public Funcionario(String nome) {
+		this();
+		this.nome = nome; 
+	}
+
+	public Funcionario(Data dataInicio, String nomeFunc) {
+		this(nomeFunc);
+		this.dataDeEntrada = dataInicio;
+	}
+
+	public static int getIdFuncionario() {
+		return Funcionario.identificador;
+	}
+
+	public double getSalario(){
+		return this.salario;
+	}
+
+	public void setSalario(double salario){
+		this.salario = salario;
+	}
+
+	public String getRg(){
+		return this.rg;
+	}
+
+	public void setRg(String rg){
+		this.rg = rg;
+	}	
 
 	void recebeAumento(double aumento) {
 		double novoSalario = this.salario + aumento;
@@ -30,7 +65,7 @@ class Funcionario {
 		else
 			System.out.println("Este funcionario já se encontrava fora da Empresa!");
 	}
-	double calculaGanhoAnual(){
+	public double getGanhoAnual(){
 		return this.salario * 12;
 	}
 
@@ -41,6 +76,12 @@ class Data {
 	int mes;
 	int ano;
 
+	public Data(int dia, int mes, int ano) {
+		this.dia = dia;
+		this.mes = mes;
+		this.ano = ano;
+	}
+
 	String formatada() {
 		return this.dia + "/" + this.mes + "/" + this.ano;
 	}
@@ -48,16 +89,20 @@ class Data {
 
 class ProgramaFuncionario {
 	public static void main(String[] args) {
-		Funcionario f1 = new Funcionario(); 
-		Data data = new Data();
-		f1.dataDeEntrada = data;
-		f1.nome = "Hugo";
-		f1.salario = 100;
+		Data data = new Data(3,4,2017);
+		Funcionario f1 = new Funcionario(data, "Karen"); 
+		//f1.dataDeEntrada = data;
+		//f1.nome = "Hugo";
+		f1.setSalario(100);
 		f1.recebeAumento(50);
+		Funcionario f2 = new Funcionario();
+		Funcionario f3 = new Funcionario("Nich");
 
-		System.out.println("Salario atual: " + f1.salario);
-		System.out.println("Ganho anual: " + f1.calculaGanhoAnual());
+		System.out.println("Salario atual f1: " + f1.getSalario());
+		System.out.println("Ganho anual f1: " + f1.getGanhoAnual());
 		//f1.demite();
-		f1.mostra();
+		f1.mostraFuncionario();
+		
+		System.out.println("Quantidade de funcionarios: " + Funcionario.getIdFuncionario());
 	}
 }

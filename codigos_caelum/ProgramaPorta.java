@@ -1,8 +1,7 @@
 class Casa {
 	String cor;
-	Porta porta1 = new Porta();
-	Porta porta2 = new Porta();
-	Porta porta3 = new Porta();
+	Porta[] portas;
+	int totalDePortas;
 
 	void pintaCasa(String s) {
 		System.out.println("A casa era " + this.cor);
@@ -10,14 +9,21 @@ class Casa {
 		System.out.printf("Agora está %s!\n", this.cor);
 	}
 
+	void adicionaPorta(Porta p) {
+		this.portas[totalDePortas] = p;
+		this.totalDePortas = this.totalDePortas + 1;
+	}
+
+	int getTotalDePortas() {
+		return this.totalDePortas;
+	}	
+
 	int quantasPortasEstaoAbertas() {
 		int quantidade = 0;
-		if (this.porta1.estaAberta())
-			quantidade++;
-		if (this.porta2.estaAberta())
-			quantidade++;
-		if (this.porta3.estaAberta())
-			quantidade++;
+		for (int i = 0; i < this.totalDePortas; i++) {	
+			if (this.portas[i].estaAberta())
+				quantidade++;
+		}
 		return quantidade;
 	}
 }
@@ -56,6 +62,10 @@ class Porta {
 
 class ProgramaPorta {
 	public static void main(String[] args) {
+
+		Casa casa = new Casa();
+		casa.portas = new Porta[4];
+
 		Porta porta1 = new Porta();
 		
 		porta1.cor = "Azul";
@@ -70,14 +80,24 @@ class ProgramaPorta {
 			System.out.println("A porta está aberta!");
 		else
 			System.out.println("A porta não está aberta!");
-
-		Casa casa1 = new Casa();
 		
-		casa1.porta1.abre();
-		//casa1.porta2.abre();
-		casa1.porta3.abre();
+		Porta porta2 = new Porta();
+		Porta porta3 = new Porta();
+		Porta porta4 = new Porta();
+		
+		porta2.cor = "Vermelha";
+		porta2.pintaPorta("Amarela");
+		
+		porta3.cor = "Azul";
+		
+		porta4.cor = "Preta";
+		casa.adicionaPorta(porta1);
+		casa.adicionaPorta(porta2);
+		casa.adicionaPorta(porta3);
+		casa.adicionaPorta(porta4);
 
-		System.out.printf("Há %d portas abertas na casa!\n", casa1.quantasPortasEstaoAbertas());
+		System.out.printf("Há %d portas abertas na casa!\n", casa.quantasPortasEstaoAbertas());
+		System.out.printf("Há %d portas nesta casa!\n", casa.getTotalDePortas());
 
 	}
 }
