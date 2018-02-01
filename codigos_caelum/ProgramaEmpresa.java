@@ -1,10 +1,18 @@
 class Empresa {
 	String nome;
 	String endereco;
-	Funcionario[] empregados;
+	private Funcionario[] empregados;
 	String cnpj;
 	boolean estaAtiva;
 	int quantidade;
+
+	public Empresa(int quantidadeFunc) {
+		this.empregados = new Funcionario[quantidadeFunc];
+	}
+
+	public Funcionario getFuncionario (int posicao) {
+		return this.empregados[posicao];
+	}
 
 	public void adiciona(Funcionario f) {
 		if (quantidade >= this.empregados.length) 
@@ -16,11 +24,11 @@ class Empresa {
 	}
 
 	void mostraEmpregados() {
-		for (int i = 0; i < this.quantidade; i++) {
+		for (int i = 0; i < quantidade; i++) {
 			System.out.println("Funcionário na posição: " + (i + 1));
 			this.empregados[i].mostraFuncionario();
 		}
-	}
+	}	
 
 	public int getQuantidade() {
 		return this.quantidade;
@@ -30,18 +38,18 @@ class Empresa {
 class ProgramaEmpresa {
 
 	public static void main(String[] args) {
-		//System.out.println("Hello world");
-		Empresa empresa = new Empresa();
-		empresa.empregados = new Funcionario[4];
 
-		Funcionario func1 = new Funcionario("Karen");
+		Empresa empresa = new Empresa(4);
+		//empresa.empregados = new Funcionario[4];
+		Data data = new Data(3,4,2017);
+		Funcionario func1 = new Funcionario(data, "Karen");
 		func1.setSalario(1000);
 		empresa.adiciona(func1);
-		Funcionario func2 = new Funcionario("Nicholas");
+		Funcionario func2 = new Funcionario(data, "Nicholas");
 		func2.setSalario(1700);
 		empresa.adiciona(func2);
 
-		Funcionario func3 = new Funcionario("Pedro");
+		Funcionario func3 = new Funcionario(data, "Pedro");
 		func3.setSalario(3000);
 		empresa.adiciona(func3);
 

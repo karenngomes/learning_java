@@ -5,7 +5,7 @@ class Funcionario {
 	Data dataDeEntrada;
 	private String rg;
 	boolean estaNaEmpresa;
-	private static int identificador;
+	int identificador;
 
 	void mostraFuncionario(){
 		System.out.println("Nome: " + this.nome);
@@ -20,7 +20,7 @@ class Funcionario {
 	}
 
 	public Funcionario(){
-		Funcionario.identificador = Funcionario.identificador + 1;
+		this.identificador = this.identificador + 1;
 	}
 
 	public Funcionario(String nome) {
@@ -33,8 +33,8 @@ class Funcionario {
 		this.dataDeEntrada = dataInicio;
 	}
 
-	public static int getIdFuncionario() {
-		return Funcionario.identificador;
+	public int getIdFuncionario() {
+		return this.identificador;
 	}
 
 	public double getSalario(){
@@ -102,7 +102,6 @@ class ProgramaFuncionario {
 		System.out.println("Ganho anual f1: " + f1.getGanhoAnual());
 		//f1.demite();
 		f1.mostraFuncionario();
-		
-		System.out.println("Quantidade de funcionarios: " + Funcionario.getIdFuncionario());
+
 	}
 }
