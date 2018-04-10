@@ -4,7 +4,7 @@ class Conta {
 	//Variáveis do tipo numerico recebem valor default (numeros é 0, boolean é false)
 
 	int numero;
-	private double saldo;
+	protected double saldo;
 	private double limite;
 	Cliente titular;
 	private static int totalDeContas; //é um atributo da classe (por causa do static)
@@ -72,6 +72,10 @@ class Conta {
 			destino.deposita(valor);
 			return true;
 		}
+	}
+
+	void atualiza(double taxa) {
+		this.saldo += this.saldo * taxa;
 	}
 
 }
