@@ -36,7 +36,7 @@ class AtualizadorDeContas {
 	public void roda(Conta c) {
 		System.out.println("Saldo anterior: " + c.getSaldo());
 		System.out.println("Atualizando a conta...");
-		double novoSaldo = c.getSaldo() + selic;
+		double novoSaldo = (c.getSaldo() * selic) + c.getSaldo();
 		c.setSaldo(novoSaldo);
 		System.out.println("Saldo atual: " + c.getSaldo());
 		this.saldoTotal += novoSaldo;

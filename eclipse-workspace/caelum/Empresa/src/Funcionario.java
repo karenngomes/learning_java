@@ -8,6 +8,7 @@ abstract class Funcionario {
 		System.out.println("Nome: " + this.nome);
 		System.out.println("salario: " + this.salario);
 		System.out.println("Cpf: " + this.cpf);
+		System.out.println("Bonificacao: " + this.getBonificacao());
 		//System.out.println("Dia: " + this.dataDeEntrada.dia);
 		//System.out.println("Mês: " + this.dataDeEntrada.mes);
 		//System.out.println("Ano: " + this.dataDeEntrada.ano);
@@ -56,8 +57,6 @@ abstract class Funcionario {
 		return this.salario * 12;
 	}
 
-	public double getBonificacao() {
-		return this.salario * 1.2;
-	}
+	abstract double getBonificacao();
 	
 }
