@@ -1,3 +1,6 @@
+package com.karenngomes.banco;
+import com.karenngomes.banco.conta.ContaCorrente;
+import com.karenngomes.banco.conta.Tributavel;
 
 public class TestaTributavel {
 

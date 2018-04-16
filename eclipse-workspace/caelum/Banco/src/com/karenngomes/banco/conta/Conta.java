@@ -1,3 +1,4 @@
+package com.karenngomes.banco.conta;
 
 public abstract class Conta {
 	protected double saldo;
@@ -18,7 +19,7 @@ public abstract class Conta {
 			this.saldo = this.saldo - quantidade;
 	}
 	
-	abstract void atualiza(double taxaSelic);
+	public abstract void atualiza(double taxaSelic);
 	
 	public void deposita(double valor) {
 		if (valor < 0)

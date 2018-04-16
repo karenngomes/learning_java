@@ -1,3 +1,7 @@
+package com.karenngomes.banco;
+import com.karenngomes.banco.conta.ContaCorrente;
+import com.karenngomes.banco.conta.GerenciadorDeImpostoDeRenda;
+import com.karenngomes.banco.conta.SeguroDeVida;
 
 public class TestaGerenciadorDeImpostoDeRenda {
 

@@ -1,3 +1,4 @@
+package com.karenngomes.banco.conta;
 
 public class SaldoInsuficienteException extends RuntimeException {
 	

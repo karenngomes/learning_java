@@ -1,3 +1,5 @@
+package com.karenngomes.banco.sistema;
+import com.karenngomes.banco.conta.Conta;
 
 public class AtualizadorDeContas {
 	private double saldoTotal = 0;

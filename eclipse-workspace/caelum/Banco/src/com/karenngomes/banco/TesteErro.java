@@ -1,3 +1,4 @@
+package com.karenngomes.banco;
 import java.io.FileNotFoundException;
 
 public class TesteErro {

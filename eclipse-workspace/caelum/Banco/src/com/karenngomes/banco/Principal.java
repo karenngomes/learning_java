@@ -1,3 +1,7 @@
+package com.karenngomes.banco;
+
+import com.karenngomes.banco.conta.*;
+import com.karenngomes.banco.sistema.AtualizadorDeContas;
 
 class Principal {
 	public static void main(String[] args) {
