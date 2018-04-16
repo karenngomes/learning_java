@@ -11,21 +11,20 @@ public abstract class Conta {
 		return this.limite;
 	}
 
-	public boolean saca(double quantidade) {
-		if (quantidade > this.saldo + this.limite){
-			System.out.println("Não posso sacar fora do limite!");
-			return false;
-		} else {
+	public void saca(double quantidade) {
+		if (quantidade > this.saldo + this.limite)
+			throw new SaldoInsuficienteException("Saldo insuficiente, tente um valor menor");
+		 else 
 			this.saldo = this.saldo - quantidade;
-			return true;
-		}
-
 	}
 	
 	abstract void atualiza(double taxaSelic);
 	
-	void deposita(double valor) {
-		this.saldo += valor;
+	public void deposita(double valor) {
+		if (valor < 0)
+			throw new ValorInvalidoException(valor);
+		else
+			this.saldo += valor;
 	}
 
 	public double getSaldo() {
