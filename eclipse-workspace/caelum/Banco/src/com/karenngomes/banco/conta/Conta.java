@@ -1,4 +1,8 @@
 package com.karenngomes.banco.conta;
+/**
+ *  Classe responsavel por moldar as Contas de Banco
+ *  @author Karen Gomes 
+ */
 
 public abstract class Conta {
 	protected double saldo;
@@ -20,6 +24,11 @@ public abstract class Conta {
 	}
 	
 	public abstract void atualiza(double taxaSelic);
+	
+	/**
+	 * Metodo que incrementa o saldo
+	 * @param valor
+	 */
 	
 	public void deposita(double valor) {
 		if (valor < 0)
