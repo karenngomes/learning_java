@@ -1,5 +1,5 @@
 package com.karenngomes.banco;
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 
 public class TesteErro {
 
@@ -8,12 +8,13 @@ public class TesteErro {
 		//System.out.println("inicio do main");
 		//metodo1();
 		//System.out.println("fim do main");
+		/*
 		try {
 			new java.io.FileInputStream("arquivo.txt");
 		} catch (java.io.FileNotFoundException z) {
 			System.out.println("Não foi possivel abrir o arquivo");
 			z.printStackTrace();
-		}
+		}*/
 	}
 	
 	static void metodo1() {
